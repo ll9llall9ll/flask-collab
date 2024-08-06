@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+    <title>All Users</title>
+</head>
+<body>
+    <h2>All Registered Users</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Name</th>
+                <th>Surname</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for username, user in users.items() %}
+            <tr>
+                <td>{{ username }}</td>
+                <td>{{ user.name }}</td>
+                <td>{{ user.surname }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{{ url_for('profile') }}">Back to Profile</a>
+    <a href="{{ url_for('logout') }}">Logout</a>
+</body>
+</html>

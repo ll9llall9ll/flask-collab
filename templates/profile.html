@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+    <title>Profile</title>
+</head>
+<body>
+    <h2>Welcome, {{ username }}!</h2>
+    <p>This is your profile page.</p>
+
+    <!-- Form to update user profile -->
+    <form method="POST" action="{{ url_for('profile') }}">
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name" value="{{ name }}" required><br>
+        <label for="surname">Surname:</label>
+        <input type="text" name="surname" id="surname" value="{{ surname }}" required><br>
+        <button type="submit">Save</button>
+    </form>
+
+    <!-- Links to other actions -->
+    <a href="{{ url_for('logout') }}">Logout</a>
+    <a href="{{ url_for('changepassword') }}">Change Password</a>
+    {% if is_admin %}
+    <a>Admin</a>
+    <!doctype html>
+<html>
+<head>
+    <title>Admin Menu</title>
+</head>
+<body>
+    <h2>Admin Menu</h2>
+    <ul>
+        <li><a href="{{ url_for('view_users') }}">View All Users</a></li>
+        <li><a href="{{ url_for('profile') }}">Back to Profile</a></li>
+        <li><a href="{{ url_for('logout') }}">Logout</a></li>
+    </ul>
+</body>
+</html>
+
+    {% endif %}
+</body>
+</html>
